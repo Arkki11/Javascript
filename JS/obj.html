@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<body>
+    <script>
+        var oppilas = {
+            etunimi:"Tuomo",
+            sukunimi:"Nevavesi",
+            ika:"22",
+            ryhma:"K5STITE13",
+            koulu:"StadinAO",
+            omaope:"Maikku",
+        }
+        function tulostaOppilas(){
+            var mina = oppilas.etunimi + ", " + oppilas.sukunimi + ", " + oppilas.ika + ", " + oppilas.ryhma + ", " + oppilas.koulu + ", " + oppilas.omaope + '<br><br>';
+        document.write(mina);
+        }
+        tulostaOppilas();
+        delete oppilas.ika;
+        tulostaOppilas()
+    </script>
+</body>
+</html>

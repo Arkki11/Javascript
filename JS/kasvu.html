@@ -1,0 +1,14 @@
+<body>
+    <button id = "b1">Kasvata!!!</button>
+    <p id="b2">0</p>
+
+    <script>
+        document.getElementById("b1").addEventListener("click", kasvata);
+        var count = 1
+        function kasvata(){
+            count++;
+            document.getElementById('b2').style.fontSize = count;
+            document.getElementById('b2').innerHTML = count;
+        }
+    </script>
+</body>

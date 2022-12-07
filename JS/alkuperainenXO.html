@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <title>XO-Peli</title>
+        <style>
+            .row div{
+                padding: 30px 30px 30px 30px;
+                border: 1px solid black;
+                background-color: whitesmoke;
+                font-size: 30px;
+                font-family: 'Times New Roman', Times, serif;
+                text-align: center;
+                /*vertical-align: middle;
+                line-height: 0%;*/
+                height: 30px;
+                width: 30px;
+                float: left;
+            }
+            .row{
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="teksti">Pelaaja-O, Aloita peli</p>
+        <div>
+            <div class="row">
+                <div id="0_0" onclick="ruutu(this)"></div>
+                <div id="0_1" onclick="ruutu(this)"></div>
+                <div id="0_2" onclick="ruutu(this)"></div>
+            </div>
+            
+            <div class="row">
+                <div id="1_0" onclick="ruutu(this)"></div>
+                <div id="1_1" onclick="ruutu(this)"></div>
+                <div id="1_2" onclick="ruutu(this)"></div>
+            </div>
+            
+            <div class="row">
+                <div id="2_0" onclick="ruutu(this)"></div>
+                <div id="2_1" onclick="ruutu(this)"></div>
+                <div id="2_2" onclick="ruutu(this)"></div>
+            </div>
+
+            <script>
+            var nytPelaa = 'O';
+            function ruutu(la){
+                //Tarkistaa onko ruutu tyhja, ja tekee sen, etta vain tyhjaan ruutuun voi syottaa arvon.
+                if(la.innerText != ""){
+                    document.getElementById("teksti").innerHTML = "Ruutu on varattu! Valitse toinen ruutu!";
+                }
+                else{
+                    la.innerText = nytPelaa;
+                    nytPelaa == 'O'?nytPelaa = 'X':nytPelaa = 'O';
+                    document.getElementById("teksti").innerHTML = "Pelaajan-" + nytPelaa + " vuoro";
+                    voitto();
+                }
+            }
+            function voitto(){
+                //vaakarivit
+                for(var i = 0; i <= 2; i++){
+                    var eka = document.getElementById(i + "_0").innerText;
+                    var toka = document.getElementById(i + "_1").innerText;
+                    var kolmas = document.getElementById(i + "_2").innerText;
+                    if(eka != "" && eka == toka && eka == kolmas){
+                        nytPelaa == 'O'?nytPelaa = 'X':nytPelaa = 'O';
+                        document.getElementById("teksti").innerHTML = "PELAAJA-" + nytPelaa + " VOITTI!";
+                    }
+                }
+                //pystyrivit
+                for(var i = 0; i <= 2; i++){
+                    var eka = document.getElementById("0_" + i).innerText;
+                    var toka = document.getElementById("1_" + i).innerText;
+                    var kolmas = document.getElementById("2_" + i).innerText;
+                    if(eka != "" && eka == toka && eka == kolmas){
+                        nytPelaa == 'O'?nytPelaa = 'X':nytPelaa = 'O';
+                        document.getElementById("teksti").innerHTML = "PELAAJA-" + nytPelaa + " VOITTI";
+                    }
+                }
+                //diagonaalirivit
+                var eka = document.getElementById("0_0").innerText;
+                var toka = document.getElementById("1_1").innerText;
+                var kolmas = document.getElementById("2_2").innerText;
+                if(eka != "" && eka == toka && eka == kolmas){
+                    nytPelaa == 'O'?nytPelaa = 'X':nytPelaa = 'O';
+                    document.getElementById("teksti").innerHTML = "PELAAJA-" + nytPelaa + " VOITTI";
+                }
+                var eka = document.getElementById("0_2").innerText;
+                var toka = document.getElementById("1_1").innerText;
+                var kolmas = document.getElementById("2_0").innerText;
+                if(eka != "" && eka == toka && eka == kolmas){
+                    nytPelaa == 'O'?nytPelaa = 'X':nytPelaa = 'O';
+                    document.getElementById("teksti").innerHTML = "PELAAJA-" + nytPelaa + " VOITTI";
+                }
+            }
+            </script>
+        </div>
+    </body>
+</html>

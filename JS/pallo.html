@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <p id="koe1"></p>
+        <p id="koe2"></p>
+        <script>
+            var sade = 12;
+            function pintaTilavuus(r){
+                return 4*3.14*r**3/3;  
+            }
+            function pintaAla(r){
+                return 4*3.14*sade**2/3;
+            }
+            document.getElementById("koe2").innerHTML = "Tilavuus: " + pintaTilavuus(sade);
+            document.getElementById("koe1").innerHTML = "Pinta-ala: " + pintaAla(sade);
+        </script>
+    </body>
+</html>

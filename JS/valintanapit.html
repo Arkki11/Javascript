@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <style>
+            div{
+                color: blue;
+                border-radius: 10px;
+                background-color: lightgrey;
+                padding: 20px;
+            }
+            p{
+                color: green;
+            }
+            input[type="radio"]{
+                margin: 8px 0;
+                width: 1en;
+                height: 1rem;
+                accent-color: green;
+            }
+        </style>
+    </head>
+    <h2>Pidän eniten?</h2>
+    <div>
+        <input type="radio" id="1" value="HTML">
+        <label for="html">HTML</label><br>
+        <input type="radio" id="2" value="CSS">
+        <label for="css">CSS</label><br>
+        <input type="radio" id="3" value="JavaScript">
+        <label for="javascript">JavaScript</label><br><br>
+    <input id="btnVastaa" type="button" value="vastaa">
+    </div>
+    <p id="p"> </p>
+    <script>
+        document.getElementById('btnVastaa').addEventListener('click', submitForm);
+        function submitForm(){
+            for(var i = 1; i < 4; i++){
+                if(document.getElementById(i).checked){
+                    var tyyppi = document.getElementById(i).value;
+                }
+            }
+            document.getElementById('p').innerHTML = "Vastasit " + tyyppi + ". C on kuitenkin THE BEST!";
+        }
+    </script>
+</html>

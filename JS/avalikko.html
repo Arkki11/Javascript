@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <style>
+            div{
+                color: blue;
+                border-radius: 10px;
+                background-color: lightgrey;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <h2>Lempivari?</h2>
+    <div>
+        <select id="vari">
+            <option value="red">Punainen</option>
+            <option value="blue">Sininen</option>
+            <option value="green">Vihrea</option>
+            <option value="hotpink">Pinkki</option>
+        </select>
+        <input id="btnVastaa" type="button" value="vastaa">
+    </div>
+    <p id="p"> </p>
+    <script>
+        document.getElementById('btnVastaa').addEventListener('click', submitForm);
+        function submitForm(){
+            var co = document.getElementById("vari").value;
+            document.getElementById('p').style.color = co;
+            document.getElementById('p').innerHTML = "Sun lempivari on " + co;
+        }
+    </script>
+</html>

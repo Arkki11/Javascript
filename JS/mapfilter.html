@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        function toLower(string) {
+            return string.toLowerCase();
+        }
+        const sanat = ['Tatti', 'Keltavahvero', 'Rousku', 'Herkkusieni', 'Karpassieni', 'Mustatorvisieni'];
+        const lowerCase = sanat.map(toLower);
+        console.log(lowerCase);
+
+        function lJ(luku) {
+            return luku.startsWith('7');
+        }
+        const lukuJono = ["7777777", "1111111", "7171717", "1717171", "0101010", "7070707"];
+        const filtered = lukuJono.filter(lJ);
+        console.log(filtered);
+    </script>
+</body>
+</html>

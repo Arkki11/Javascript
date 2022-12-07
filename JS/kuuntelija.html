@@ -1,0 +1,26 @@
+<body>
+    <button id="klikkaa">Klikkaa mua?</button><br>
+    <a href="https://www.sarvas.fi/javascript/" id = "linkki">Mika se tan kurssin sivu olikaan?</a><br>
+    <button id="time">The time is?</button><br>
+    <button id="pinkki">Want it pink?</button>
+
+    <script>
+        document.getElementById("pinkki").addEventListener("click", pink);
+        document.getElementById("time").addEventListener("click", aika);
+        document.getElementById("klikkaa").addEventListener("click", klik);
+        document.getElementById("linkki").addEventListener("click", linkki);
+
+        function pink(){
+            document.body.style.backgroundColor = "pink";
+        }
+        function aika(){
+            this.innerHTML = Date();
+        }
+        function klik(){
+            document.write("Aktivoin tapahtuman, joka kirjoitti taman tahan");
+        }
+        function linkki(){
+            alert("Sarvas.fi");
+        }
+    </script>
+</body>

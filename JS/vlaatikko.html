@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <style>
+            input[type=button], input[type=submit], input[type=reset]{
+                background-color: green;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div><form>
+        <label for="multipleChoice">Milla kuljet?</label><br>
+            
+        <input type="checkbox" id="2" value="Pyoralla">
+            <label for="Pyoralla">Pyoralla</label><br>
+            
+            <input type="checkbox" id="3" value="Autolla">
+            <label for="Autolla">Autolla</label><br>
+            
+            <input type="checkbox" id="4" value="Veneella">
+            <label for="Veneella">Veneella</label><br>
+            
+            <input type="checkbox" id="5" value="Jalan">
+            <label for="Jalan">Jalan</label><br>
+            
+            <input type="checkbox" id="6" value="Helikopterilla">
+            <label for="Helikopterilla">Helikopterilla</label><br><br>
+            
+            <input id="btnVastaa" type="button" value="Vastaa">
+            </form></div>
+
+            <p id="1"></p>
+            <script>
+                document.getElementById('btnVastaa').addEventListener('click', submitForm);
+
+                function submitForm(){
+                    for(var i = 2; i <= 6; i++){
+                        if(document.getElementById(i).checked){
+                            if(i == 2){
+                                var tyyppi1 = [document.getElementById(i).value];
+                            }
+                            else if(i == 3){
+                                tyyppi1.push(" " + document.getElementById(i).value);
+                            }
+                            else if(i == 4){
+                            tyyppi1.push(" " + document.getElementById(i).value);
+                            }
+                            else if(i == 5){
+                                tyyppi1.push(" " + document.getElementById(i).value);
+                            }
+                            else if(i == 6){
+                                tyyppi1.push(" " + document.getElementById(i).value);
+                            }
+                        }
+                    }
+                document.getElementById('1').innerHTML = tyyppi1;
+                }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <style>
+            .eyes{
+                position: absolute;
+                top: 160px;
+                left: -788px;
+                transform: translateY(-50%);
+                width: 100%;
+                text-align: center;
+            }
+            .eye{
+                width: 30px;
+                height: 15px;
+                background: black;
+                display: inline-block;
+                margin: 5px;
+                border-radius: 50%;
+                position: relative;
+                overflow: hidden;
+            }
+            .ball{
+                width: 8px;
+                height: 8px;
+                background: white;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                border-radius: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Animaatio</h2>
+        <canvas id="myCanvas1" style="background-color: red;" width="400" height="400"></canvas>
+        <canvas id="myCanvas2" style="background-color: blue;" width="400" height="400"></canvas>
+        
+        <div class="eyes">
+            <div class="eye">
+                <div class="ball">
+
+                </div>
+            </div>
+            <div class="eye">
+                <div class="ball">
+
+                </div>
+            </div>
+        </div>
+        <script>
+            const el=document.getElementById("myCanvas1");
+            const ctx=el.getContext('2d');
+
+            const minx=100;
+            const rangeX=200;
+            let p=0;
+            let sign=1;
+
+            animate();
+            function animate(){
+                const x=minx+rangeX*p;
+                p=p+0.01*sign;
+                if(p>1 || p<0){
+                    sign=sign*-1;
+                }
+                ctx.clearRect(0,0,myCanvas1.width,myCanvas1.height);
+                ctx.beginPath();
+                ctx.arc(x,200,20,0,Math.PI*2);
+                ctx.stroke();
+                requestAnimationFrame(animate);                
+            }
+            
+            //Lumiukon silmät
+            var balls = document.getElementsByClassName("ball");
+            document.onmousemove = function(){
+                var x = event.clientX * 100 / window.innerWidth + "%";
+                var y = event.clientY * 100 / window.innerHeight + "%";
+                for(var i=0; i<2; i++){
+                    balls[i].style.left = x;
+                    balls[i].style.top = y;
+                    balls[i].style.transform = "translate(-"+x+",-"+y+")";
+                }
+            }
+            
+            var el2=document.getElementById("myCanvas2");
+            var ctx2=el2.getContext('2d');
+            var scale = 0.7;
+            //Lumiukko
+            lumiukko(200,330,70,0.8);
+            function lumiukko(x5,y5,r5,scale){
+                //Lumiukon alin kolmasosa
+                ctx2.beginPath();
+                ctx2.arc(x5, y5, r5, 0, 2*Math.PI);
+                ctx2.fillStyle="white";
+                ctx2.fill();
+                //Lumiukon keskimmäinen kolmasosa
+                ctx2.beginPath();
+                var r6=r5*scale, x6=x5, y6=y5-r5-r6;
+                ctx2.arc(x6, y6, r6, 0, 2*Math.PI);
+                ctx2.fill();
+                //Lumiukon ylin kolmasosa
+                ctx2.beginPath();
+                var r7=r6*scale, x7=x6, y7=y6-r6-r7;
+                ctx2.arc(x7, y7, r7, 0, 2*Math.PI);
+                ctx2.fill();
+                //Kutsutaan hatunteko funktiota
+                hattu(x7, y7, r7);
+            }
+            //Lumiukon hattu
+            function hattu(x7,y7,r7){
+                //Hatun reuna
+                ctx2.beginPath();
+                var w8 = r7*2, h8 = r7/2, x8 = x7 - w8/2, y8 = y7 - r7;
+                ctx2.rect(x8, y8, w8, h8);
+                ctx2.stroke();
+                ctx2.fillStyle="black";
+                ctx2.fill();
+                //Hatun pääosa
+                ctx2.beginPath();
+                var w9 = w8*scale, h9 = r7, x9 = x7 - w9/2, y9 = y8 - h9;
+                ctx2.rect(x9, y9, w9, h9);
+                ctx2.stroke();
+                ctx2.fill();
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <h1>Tänään on</h1>
+        <p id="aika"></p>
+        <script>
+            const currentDate = new Date();
+            const date = currentDate.getDate();
+            const month = currentDate.getMonth();
+            const year = currentDate.getFullYear();
+
+            let dateMonthYear = "Tänään on: " + date + "." + (month+1) + "." + year;
+
+            document.getElementById("aika").innerHTML = dateMonthYear;
+        </script>
+    </body>
+</html>

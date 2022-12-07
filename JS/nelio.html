@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            function hov(){
+                document.getElementById('hover').style.background = 'red';
+            }
+            function hovout(){
+                var e = document.getElementById('hover');
+                e.style.background = 'greenyellow';
+            }
+        </script>
+        <div id="hover" onmouseover="hov()" onmouseout="hovout()"
+        style = "background-color:greenyellow;height:200px;width:200px;">
+        </div>
+    </body>
+</html>

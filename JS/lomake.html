@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <style>
+            div{
+                color: blue;
+                border-radius: 10px;
+                background-color: lightgrey;
+                padding: 20px;
+            }
+            p{
+                color: green;
+            }
+        </style>
+    </head>
+    <div><form>
+        <label for="fname">Etunimi :</label><br>
+        <input type="text" id="fname" name="fname" value=""><br>
+        <label for="fname">Sukunimi :</label><br>
+        <input type="text" id="lname" name="lname" value="">
+    </form>
+    <input id="btnVastaa" type="button" value="vastaa">
+    </div>
+    <p id="1">Also note that the default width of text input fields is 20 characters.</p>
+    <script>
+        document.getElementById('btnVastaa').addEventListener('click', submitForm);
+        function submitForm(){
+            document.getElementById('1').innerHTML = "Nimesi on " + document.getElementsByTagName("form")[0].fname.value + " " + document.getElementsByTagName("form")[0].lname.value;
+        }
+    </script>
+</html>

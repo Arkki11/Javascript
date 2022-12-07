@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <style>
+            div{
+                color: blue;
+                border-radius: 10px;
+                background-color: lightgrey;
+                padding: 20px;
+            }
+            p{
+                color: rgb(83, 24, 150);
+                text-align: center;
+            }
+            input[type=text], select {
+                width: 60%;
+                margin: 8px 0;
+                padding: 1px;
+                border: 1px solid rgb(239, 9, 9);
+                border-radius: 10px;
+            }  
+            input[type="radio"], input[type="checkbox"] {
+                margin: 8px 0;
+                width: 1em;
+                height: 1rem;
+                accent-color: green;
+            }
+            input[type=button], input[type=submit], input[type=reset] {
+                background-color: green;
+                color: white;
+            }
+        </style>
+    </head>
+    <div><form>
+        <label for="name">Nimesi: </label><br>
+        <input type="text" id="name" name="name" value=""><br><br>
+
+        <label for="vari">Joulun vari on: </label><br>
+        <select id="vari">
+            <option value="Punaiseen">Punainen</option>
+            <option value="Siniseen">Sininen</option>
+            <option value="Vihreaan">Vihrea</option>
+        </select><br><br>
+
+        <label for="multipleChoice">Jouluun kuuluu ehdottomasti: </label><br>
+            <input type="checkbox" id="2" value="Joulupukki">
+            <label for="Joulupukki">Joulupukki</label><br>
+            <input type="checkbox" id="3" value="Enkelit">
+            <label for="Enkelit">Enkelit</label><br>
+            <input type="checkbox" id="4" value="Kaupallisuus">
+            <label for="Kaupallisuus">Kaupallisuus</label><br><br>
+        
+        <label for="jouluOn">Joulu on: </label><br>
+            <input type="radio" id="5" value="Olet oikea jouluihminen!">
+            <label for="Paras">Parasta</label><br>
+            <input type="radio" id="6" value="Joulu on sinulle juhla muiden joukossa.">
+            <label for="Loma">Loma kohdallaan</label><br>
+            <input type="radio" id="7" value="Joulun voisi peruttaa.">
+            <label for="Turha">Turha</label><br><br>
+
+    </form>
+    <input id="btnVastaa" type="button" value="vastaa">
+    </div>
+    <p id="1"></p>
+    <script>
+        document.getElementById('btnVastaa').addEventListener('click', submitForm);
+        function submitForm(){
+            var co = document.getElementById("vari").value;
+            document.getElementById('1').style.color = co;
+            for(var i = 2; i <= 4; i++){
+                if(document.getElementById(i).checked){
+                    if(i == 2){
+                        var tyyppi1 = [document.getElementById(i).value];
+                    }
+                    else if(i == 3){
+                        tyyppi1.push(" " + document.getElementById(i).value);
+                    }
+                    else if(i == 4){
+                        tyyppi1.push(" " + document.getElementById(i).value);
+                    }
+                }
+            }
+            for(var i = 5; i <= 7; i++){
+                if(document.getElementById(i).checked){
+                    var tyyppi2 = document.getElementById(i).value;
+                }
+            }
+            document.getElementById('1').innerHTML = "Alle 2 kuukautta jouluun " + document.getElementsByTagName("form")[0].name.value + "! " + co + " jouluusi kuuluu " + tyyppi1 + ". " + tyyppi2;
+        }
+    </script>
+</html>

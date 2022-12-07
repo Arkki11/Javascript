@@ -1,0 +1,42 @@
+<body>
+    <script>
+        function Miljonaari(){
+            this.nimi = "";
+            this.ika = "";
+            this.paikka = "";
+            this.auto = "";
+            this.saldo = "";
+            this.tuhlaa = function(){
+                this.saldo = this.saldo - 1000;
+                return this.saldo
+            };
+        }
+        var henk1 = new Miljonaari();
+        henk1.nimi = "Maikku";
+        henk1.ika = 40;
+        henk1.apaikka = "Espoo";
+        henk1.auto = "Tesla";
+        henk1.saldo = "1000000";
+
+        var henk2 = Object.create(Miljonaari);
+        henk2.nimi = "Nori";
+        henk2.ika = 2;
+        henk2.apaikka = "Espoo";
+        henk2.auto = "Tesla";
+        henk2.saldo = 2000000;
+
+        var henk3 = Object.create(Miljonaari);
+        henk3.nimi = "Alli";
+        henk3.ika = 5;
+        henk3.apaikka = "Espoo";
+        henk3.auto = "Tesla";
+        henk3.saldo = 3000000;
+
+        Miljonaari.prototype.jalokivet = "";
+        henk1.jalokivet = "timantteja";
+        henk2.jalokivet = "kultaluita";
+        henk3.jalokivet = "rubiineja";
+
+        document.write("Maikulla on " + henk1.saldo + " € seka " + henk1.jalokivet + ", Norilla on " + henk2.saldo + " € seka " + henk2.jalokivet + ", Allilla on " + henk3.saldo + " € seka " + henk3.jalokivet);
+    </script>
+</body>
